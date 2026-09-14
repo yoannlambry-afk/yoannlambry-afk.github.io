@@ -1,0 +1,313 @@
+/* ============================================================
+   Studio Bibou — feuille de style commune
+   Pages studio : fond ivoire, encre chaude, accent doré.
+   Pages Charge Quest : bleu nuit #061B2E, or #B68A2E, ivoire #F8F4EA.
+   ============================================================ */
+
+:root {
+  --ivoire: #F8F4EA;
+  --bleu-nuit: #061B2E;
+  --or: #B68A2E;
+  --or-clair: #D4AF5E;
+  --encre: #1E1B14;
+  --encre-douce: #5C5647;
+  --blanc: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--ivoire);
+  color: var(--encre);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--or); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.conteneur {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- En-tête commun ---------- */
+
+header.site {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(30, 27, 20, 0.08);
+}
+
+header.site .conteneur {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.marque {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: 1.05rem;
+  color: inherit;
+}
+.marque:hover { text-decoration: none; }
+
+nav.site a {
+  margin-left: 20px;
+  font-size: 0.95rem;
+  color: inherit;
+  opacity: 0.75;
+}
+nav.site a:hover { opacity: 1; text-decoration: none; }
+
+/* ---------- Sections génériques ---------- */
+
+.heros {
+  padding: 72px 0 56px;
+  text-align: center;
+}
+
+.heros h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.heros .accroche {
+  margin-top: 16px;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  color: var(--encre-douce);
+  max-width: 34em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filet {
+  width: 56px;
+  height: 3px;
+  background: var(--or);
+  border-radius: 2px;
+  margin: 28px auto 0;
+}
+
+section.bloc { padding: 40px 0; }
+
+section.bloc h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  letter-spacing: -0.005em;
+}
+
+.sur-titre {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--or);
+  margin-bottom: 10px;
+}
+
+/* ---------- Carte "application" (page studio) ---------- */
+
+.carte-app {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  background: var(--blanc);
+  border: 1px solid rgba(30, 27, 20, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(6, 27, 46, 0.06);
+  color: inherit;
+}
+.carte-app:hover { text-decoration: none; box-shadow: 0 14px 36px rgba(6, 27, 46, 0.10); }
+
+.carte-app img {
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.carte-app h3 { font-size: 1.25rem; margin-bottom: 4px; }
+.carte-app p { color: var(--encre-douce); font-size: 0.98rem; }
+
+.etiquette {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: rgba(182, 138, 46, 0.12);
+  color: var(--or);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ---------- Pied de page ---------- */
+
+footer.site {
+  margin-top: 48px;
+  padding: 32px 0 44px;
+  border-top: 1px solid rgba(30, 27, 20, 0.08);
+  font-size: 0.9rem;
+  color: var(--encre-douce);
+}
+
+footer.site .conteneur {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Habillage Charge Quest (body.cq)
+   ============================================================ */
+
+body.cq {
+  background: var(--bleu-nuit);
+  color: var(--ivoire);
+}
+
+body.cq header.site { border-bottom-color: rgba(248, 244, 234, 0.12); }
+
+body.cq a { color: var(--or-clair); }
+
+body.cq .heros .accroche { color: rgba(248, 244, 234, 0.78); }
+
+body.cq footer.site {
+  border-top-color: rgba(248, 244, 234, 0.12);
+  color: rgba(248, 244, 234, 0.6);
+}
+
+.cq-logo {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  margin: 0 auto 24px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(212, 175, 94, 0.35);
+}
+
+.cq-halo {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(182, 138, 46, 0.16), transparent 70%),
+    var(--bleu-nuit);
+}
+
+/* Rangée des dos de cartes */
+
+.rangee-cartes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.rangee-cartes figure { text-align: center; }
+
+.rangee-cartes img {
+  border-radius: 12px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease;
+}
+.rangee-cartes figure:hover img { transform: translateY(-6px); }
+
+.rangee-cartes figcaption {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(248, 244, 234, 0.7);
+}
+
+@media (max-width: 560px) {
+  .rangee-cartes { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Grille d'arguments */
+
+.grille-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.point {
+  background: rgba(248, 244, 234, 0.05);
+  border: 1px solid rgba(248, 244, 234, 0.1);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.point h3 {
+  font-size: 1.02rem;
+  margin-bottom: 8px;
+  color: var(--or-clair);
+}
+
+.point p {
+  font-size: 0.95rem;
+  color: rgba(248, 244, 234, 0.82);
+}
+
+/* Mention "bientôt" */
+
+.bientot {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 175, 94, 0.5);
+  color: var(--or-clair);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+
+/* ============================================================
+   Pages longues (politique de confidentialité)
+   ============================================================ */
+
+article.document {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 24px 24px;
+}
+
+article.document h1 { font-size: 1.9rem; line-height: 1.2; }
+
+article.document .date-maj {
+  margin-top: 10px;
+  color: var(--encre-douce);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+article.document .resume {
+  margin: 28px 0;
+  padding: 20px 24px;
+  background: rgba(182, 138, 46, 0.09);
+  border-left: 3px solid var(--or);
+  border-radius: 0 12px 12px 0;
+  font-weight: 500;
+}
+
+article.document h2 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+article.document p { margin-bottom: 14px; }
+
+article.document ul { margin: 0 0 14px 1.2em; }
+article.document li { margin-bottom: 6px; }
