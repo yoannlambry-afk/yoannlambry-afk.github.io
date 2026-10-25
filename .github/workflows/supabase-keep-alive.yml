@@ -1,0 +1,33 @@
+# Garde le projet Supabase de Charge Quest éveillé.
+# Le plan gratuit met un projet en pause après environ sept jours sans
+# requête : une lecture d'une ligne du catalogue public, deux fois par
+# semaine, suffit à compter comme activité. Aucune donnée personnelle n'est
+# lue ni écrite. Décision de Yoann du 25 octobre 2026 (keep-alive plutôt
+# que plan Pro, pour l'instant).
+#
+# Attention : GitHub désactive les tâches planifiées d'un dépôt resté sans
+# commit pendant 60 jours (un e-mail prévient). Un commit sur le site, ou
+# « Run workflow » depuis l'onglet Actions, la réactive.
+
+name: Supabase keep-alive
+
+on:
+  schedule:
+    # Lundi et jeudi à 06:00 UTC.
+    - cron: "0 6 * * 1,4"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lire une ligne du catalogue public
+        env:
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 \
+            "https://vsczdmevbyqwdfbpfqjo.supabase.co/rest/v1/map_superchargers?select=supercharger_id&limit=1" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}")
+          echo "Supabase a répondu HTTP ${code}"
+          test "${code}" = "200"
